@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "MenoVeda Ayurvedic Health Platform Blueprint",
+  "description": "Schema and security blueprint for MenoVeda e-commerce, consultations, reviews, and symptom assessments.",
+  "collections": {
+    "users": {
+      "description": "User profile records",
+      "fields": {
+        "uid": { "type": "string" },
+        "email": { "type": "string" },
+        "displayName": { "type": "string" },
+        "photoURL": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "phone": { "type": "string" }
+      }
+    },
+    "carts": {
+      "description": "User shopping carts synced with Firestore",
+      "fields": {
+        "userId": { "type": "string" },
+        "items": { "type": "array" },
+        "updatedAt": { "type": "string" }
+      }
+    },
+    "orders": {
+      "description": "User completed orders",
+      "fields": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "items": { "type": "array" },
+        "totalAmount": { "type": "number" },
+        "shippingAddress": { "type": "object" },
+        "status": { "type": "string" },
+        "createdAt": { "type": "string" }
+      }
+    },
+    "consultations": {
+      "description": "Doctor appointments booked by users",
+      "fields": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "userName": { "type": "string" },
+        "userEmail": { "type": "string" },
+        "userPhone": { "type": "string" },
+        "doctorName": { "type": "string" },
+        "date": { "type": "string" },
+        "timeSlot": { "type": "string" },
+        "symptoms": { "type": "string" },
+        "status": { "type": "string" },
+        "createdAt": { "type": "string" }
+      }
+    },
+    "reviews": {
+      "description": "Customer product reviews",
+      "fields": {
+        "id": { "type": "string" },
+        "productId": { "type": "string" },
+        "userId": { "type": "string" },
+        "userName": { "type": "string" },
+        "rating": { "type": "number" },
+        "title": { "type": "string" },
+        "comment": { "type": "string" },
+        "verified": { "type": "boolean" },
+        "createdAt": { "type": "string" }
+      }
+    },
+    "symptom_assessments": {
+      "description": "Completed symptom quiz assessments",
+      "fields": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "primarySymptoms": { "type": "array" },
+        "ageRange": { "type": "string" },
+        "recommendedProductIds": { "type": "array" },
+        "createdAt": { "type": "string" }
+      }
+    }
+  }
+}
